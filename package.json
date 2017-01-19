@@ -1,0 +1,27 @@
+{
+  "name": "elm-stylus-npm-starter",
+  "version": "0.1.0",
+  "author": "Kimmo Lankila <krisnod@expbytes.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:css": "stylus --compress --include-css src/css --out dist/css",
+    "build:elm": "elm make src/elm/Main.elm --output dist/main.js",
+    "build": "npm-run-all --serial clean --parallel build:*",
+    "clean": "rimraf dist && mkdirp dist/css",
+    "postinstall": "mkdirp dist/css",
+    "serve": "http-server dist",
+    "watch:css": "stylus --watch --include-css src/css --out dist/css",
+    "watch:elm": "sane \"npm run build:elm\" src/elm/ --glob=\"**/*.elm\"",
+    "watch": "npm-run-all --serial clean --parallel watch:* serve"
+  },
+  "devDependencies": {
+    "elm": "^0.18.0",
+    "http-server": "^0.9.0",
+    "mkdirp": "^0.5.1",
+    "npm-run-all": "^4.0.1",
+    "rimraf": "^2.5.4",
+    "sane": "^1.5.0",
+    "stylus": "^0.54.5"
+  },
+  "dependencies": {}
+}
