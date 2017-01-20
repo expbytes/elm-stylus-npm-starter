@@ -10,7 +10,7 @@
     "build": "npm-run-all clean && npm-run-all --parallel build:*",
     "clean": "rimraf dist && mkdirp dist/css",
     "postinstall": "mkdirp dist/css",
-    "serve": "http-server dist",
+    "serve": "live-server --wait=300 --no-browser dist",
     "watch:css": "stylus --watch --include-css src/css --out dist/css",
     "watch:elm": "sane \"npm run build:elm\" src/elm/ --glob=\"**/*.elm\"",
     "watch:html": "sane \"npm run build:html\" src/ --glob=\"**/*.html\"",
@@ -19,7 +19,7 @@
   "devDependencies": {
     "cpr": "^2.0.2",
     "elm": "^0.18.0",
-    "http-server": "^0.9.0",
+    "live-server": "^1.2.0",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.0.1",
     "rimraf": "^2.5.4",
